@@ -1,2 +1,2 @@
-# AndroidLab
-主要是测试一些android 功能
+# PermissionsDemo
+主要是测试一些android 权限功能
