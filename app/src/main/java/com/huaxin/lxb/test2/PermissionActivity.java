@@ -1,5 +1,6 @@
 package com.huaxin.lxb.test2;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -9,13 +10,58 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class PermissionActivity extends AppCompatActivity {
+
+    private Button perBtn;
+    private Button luyinBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
+        perBtn = (Button) findViewById(R.id.per_btn);
+        perBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String [] permissions = new String[] { Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION };
+                performRequestPermissions("获取位置权限", permissions, 2000, new PermissionsResultListener(){
+
+                    @Override
+                    public void onPermissionGranted() {
+                        Log.i("TAG", "已经授权");
+                    }
+
+                    @Override
+                    public void onPermissionDenied() {
+                        Log.i("TAG", "被拒绝授权");
+                    }
+                });
+            }
+        });
+
+        luyinBtn = (Button) findViewById(R.id.luyin_btn);
+        luyinBtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String [] permissions = new String[] { Manifest.permission.RECORD_AUDIO};
+                performRequestPermissions("获取录音权限", permissions, 3000, new PermissionsResultListener(){
+
+                    @Override
+                    public void onPermissionGranted() {
+                        Log.i("录音", "已经授权");
+                    }
+
+                    @Override
+                    public void onPermissionDenied() {
+                        Log.i("录音", "被拒绝授权");
+                    }
+                });
+            }
+        });
     }
 
     private PermissionsResultListener mListener;
@@ -36,7 +82,7 @@ public class PermissionActivity extends AppCompatActivity {
         }
         mRequestCode = requestCode;
         mListener = listener;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // >= 23
             if (checkEachSelfPermission(permissions)) {// 检查是否声明了权限
                 requestEachPermissions(desc, permissions, requestCode);
             } else {// 已经申请权限
