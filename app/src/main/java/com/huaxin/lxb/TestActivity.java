@@ -1,4 +1,4 @@
-package com.huaxin.lxb.test2;
+package com.huaxin.lxb;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.huaxin.lxb.R;
+import com.huaxin.lxb.TestActivityPermissionsDispatcher;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
