@@ -1,4 +1,4 @@
-package com.huaxin.lxb;
+package com.lxb.permissions;
 
 import android.Manifest;
 import android.os.Bundle;

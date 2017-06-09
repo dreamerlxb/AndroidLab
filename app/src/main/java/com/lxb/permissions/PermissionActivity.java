@@ -1,4 +1,4 @@
-package com.huaxin.lxb;
+package com.lxb.permissions;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.huaxin.lxb.R;
+import com.lxb.permissions.R;
 
 public class PermissionActivity extends AppCompatActivity {
 

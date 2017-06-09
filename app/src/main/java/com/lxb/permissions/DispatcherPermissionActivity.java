@@ -1,4 +1,4 @@
-package com.huaxin.lxb;
+package com.lxb.permissions;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.huaxin.lxb.R;
-import com.huaxin.lxb.TestActivityPermissionsDispatcher;
-
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
 import permissions.dispatcher.OnPermissionDenied;
@@ -21,7 +18,7 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
-public class TestActivity extends AppCompatActivity {
+public class DispatcherPermissionActivity extends AppCompatActivity {
     private Button testBtn;
 
     @Override
@@ -32,7 +29,7 @@ public class TestActivity extends AppCompatActivity {
         testBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestActivityPermissionsDispatcher.needsPermissionWithCheck(TestActivity.this);
+                DispatcherPermissionActivityPermissionsDispatcher.needsPermissionWithCheck(DispatcherPermissionActivity.this);
             }
         });
     }
@@ -45,7 +42,7 @@ public class TestActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        TestActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+        DispatcherPermissionActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 
     @OnShowRationale(Manifest.permission.CAMERA)
@@ -55,7 +52,7 @@ public class TestActivity extends AppCompatActivity {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //再次执行请求
+                        // 再次执行请求
                         request.proceed();
                     }
                 })

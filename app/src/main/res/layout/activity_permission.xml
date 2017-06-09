@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.huaxin.lxb.test2.com.huaxin.lxb.PermissionActivity">
+    tools:context="com.huaxin.lxb.permissions.com.huaxin.lxb.PermissionActivity">
 
     <Button
         android:id="@+id/per_btn"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.huaxin.lxb.test2.com.huaxin.lxb.MainActivity">
+    tools:context="com.huaxin.lxb.permissions.com.huaxin.lxb.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

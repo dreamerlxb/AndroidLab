@@ -1,4 +1,4 @@
-package com.huaxin.lxb.test2;
+package com.lxb.permissions;
 
 import org.junit.Test;
 
