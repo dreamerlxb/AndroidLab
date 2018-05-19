@@ -12,6 +12,7 @@ import android.view.View;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 public class RxActivity extends AppCompatActivity {
@@ -20,10 +21,10 @@ public class RxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,7 +36,7 @@ public class RxActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.request(Manifest.permission.CAMERA).subscribe(new Consumer<Boolean>() {
+        Disposable subscribe = rxPermissions.request(Manifest.permission.CAMERA).subscribe(new Consumer<Boolean>() {
             @Override
             public void accept(@NonNull Boolean aBoolean) throws Exception {
                 if (aBoolean) {
@@ -46,5 +47,4 @@ public class RxActivity extends AppCompatActivity {
             }
         });
     }
-
 }

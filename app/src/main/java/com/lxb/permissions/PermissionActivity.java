@@ -25,7 +25,7 @@ public class PermissionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
-        perBtn = (Button) findViewById(R.id.per_btn);
+        perBtn = findViewById(R.id.per_btn);
         perBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +45,7 @@ public class PermissionActivity extends AppCompatActivity {
             }
         });
 
-        luyinBtn = (Button) findViewById(R.id.luyin_btn);
+        luyinBtn = findViewById(R.id.luyin_btn);
         luyinBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {

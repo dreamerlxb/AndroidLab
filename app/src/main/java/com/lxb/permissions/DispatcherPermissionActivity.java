@@ -25,11 +25,11 @@ public class DispatcherPermissionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        testBtn = (Button) findViewById(R.id.camera_btn);
+        testBtn = findViewById(R.id.camera_btn);
         testBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DispatcherPermissionActivityPermissionsDispatcher.needsPermissionWithCheck(DispatcherPermissionActivity.this);
+                DispatcherPermissionActivityPermissionsDispatcher.needsPermissionWithPermissionCheck(DispatcherPermissionActivity.this);
             }
         });
     }
