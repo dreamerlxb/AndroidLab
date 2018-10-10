@@ -36,15 +36,17 @@ public class RxActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         RxPermissions rxPermissions = new RxPermissions(this);
-        Disposable subscribe = rxPermissions.request(Manifest.permission.CAMERA).subscribe(new Consumer<Boolean>() {
-            @Override
-            public void accept(@NonNull Boolean aBoolean) throws Exception {
-                if (aBoolean) {
-                    Log.i("===", "已授权");
-                } else {
-                    Log.i("===", "未授权");
-                }
-            }
-        });
+        Disposable subscribe = rxPermissions
+                .request(Manifest.permission.CAMERA)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(@NonNull Boolean aBoolean) throws Exception {
+                        if (aBoolean) {
+                            Log.i("===", "已授权");
+                        } else {
+                            Log.i("===", "未授权");
+                        }
+                    }
+                });
     }
 }
